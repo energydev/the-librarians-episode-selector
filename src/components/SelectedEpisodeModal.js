@@ -1,31 +1,52 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import Modal from "react-modal";
 import { connect } from "react-redux";
-import { seasonModalOn, seasonModalOff, selectedEpisodeModalOn, selectedEpisodeModalOff } from "../actions/modals";
+import { headlinerModalOn, seasonModalOff, selectedEpisodeModalOn, selectedEpisodeModalOff } from "../actions/modals";
+import { clearCriteria } from "../actions/criteria";
+import { setSelectedEpisode } from "../actions/selectedEpisode";
+import episodeJson from "../data/LibrariansEpisodes.json";
 
 
 //using implicit return
 export class SelectedEpisodeModal extends React.Component {
 
-    handleCloseEpisodeSelection = (e) => {
-        console.log("inside handleCloseEpisodeSelection");
+    constructor() {
+        super();
+
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+
+    }
+
+    handleCloseEpisodeSelection = () => {
+        this.props.clearCriteria();
         this.props.selectedEpisodeModalOff();
-        setTimeout(() => { console.log(this.props.modals) }, 2000);
     };
+
+
+    afterOpenModal() {
+        //If we have a headliner, then select by headliner, otherwise select by season
+        const allEpisodes = episodeJson.Episodes;
+        const episodeList = allEpisodes.filter((episode) => episode.Season == this.props.criteria.season);
+        const selectedIndex = Math.floor(Math.random() * episodeList.length);
+        this.props.setSelectedEpisode(episodeList[selectedIndex]);
+    }
 
     render() {
         return (
             <Modal
                 isOpen={this.props.modals.selectedEpisode} //converted to a true boolean
+                onAfterOpen={this.afterOpenModal}
                 onRequestClose={this.handleCloseEpisodeSelection}
                 contentLabel="Selected Episode"
                 closeTimeoutMS={200}
                 className="modal"
             >
-                <h3 className="modal__title">Season selection</h3>
+                <h3 className="modal__title">Selected Episode</h3>
                 {this.props.selectedOption && <p className="modal__body">{this.props.selectedOption}</p>}
                 <div>
-                    <p>Selected episode will go here. It will be from season: {this.props.criteria.season}</p>
+                    <p>{this.props.selectedEpisode.Title}</p>
+                    <p>Season {this.props.selectedEpisode.Season} Episode {this.props.selectedEpisode.EpisodeNoInSeason}</p>
                 </div>
                 <button className="button" onClick={this.handleCloseEpisodeSelection}>Okay</button>
             </Modal>
@@ -36,14 +57,17 @@ export class SelectedEpisodeModal extends React.Component {
 
 const mapStateToProps = (state) => ({
     modals: state.modals,
-    criteria: state.criteria
+    criteria: state.criteria,
+    selectedEpisode: state.selectedEpisode
 });
 
 const mapDispatchToProps = (dispatch) => ({
     seasonModalOff: () => dispatch(seasonModalOff()),
-    seasonModalOn: () => dispatch(seasonModalOn()),
+    seasonModalOn: () => dispatch(headlinerModalOn()),
     selectedEpisodeModalOn: () => dispatch(selectedEpisodeModalOn()),
-    selectedEpisodeModalOff: () => dispatch(selectedEpisodeModalOff())
+    selectedEpisodeModalOff: () => dispatch(selectedEpisodeModalOff()),
+    setSelectedEpisode: (episode) => dispatch(setSelectedEpisode(episode)),
+    clearCriteria: () => dispatch(clearCriteria()),
 });
 
 

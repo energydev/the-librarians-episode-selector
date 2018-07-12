@@ -2,7 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import SeasonModal from "./SeasonModal";
 import SelectedEpisodeModal from "./SelectedEpisodeModal";
-import { seasonModalOn, seasonModalOff } from "../actions/modals";
+import HeadlinerModal from "./HeadlinerModal";
+import { seasonModalOn, headlinerModalOn } from "../actions/modals";
 
 
 export class MainPage extends React.Component {
@@ -10,7 +11,11 @@ export class MainPage extends React.Component {
     displaySeasonModal = (e) => {
         console.log("going to display season modal");
         this.props.seasonModalOn();
-        //setTimeout(() => {console.log(this.props.modals) } , 2000);
+    };
+
+    displayHeaderlinerModal = (e) => {
+        console.log("going to display headliner modal");
+        this.props.headlinerModalOn();
     };
 
     render() {
@@ -18,14 +23,19 @@ export class MainPage extends React.Component {
             <div className="main-page">
                 <div className="content-container">
                     Main page content.
-            <button className="big-button"
+                    <button className="big-button"
                         onClick={this.displaySeasonModal}
                     >
                         Random by Season
-            </button>
-                    <button className="big-button">Random by Character</button>
+                    </button>
+                    <button className="big-button"
+                        onClick={this.displayHeaderlinerModal}
+                    >
+                        Random by Featured Headliner
+                    </button>
                 </div>
                 <SeasonModal />
+                <HeadlinerModal />
                 <SelectedEpisodeModal />
             </div>
         )
@@ -38,8 +48,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    seasonModalOff: () => dispatch(seasonModalOff()),
-    seasonModalOn: () => dispatch(seasonModalOn())
+    seasonModalOn: () => dispatch(seasonModalOn()),
+    headlinerModalOn: () => dispatch(headlinerModalOn())
 });
 
 

@@ -6,6 +6,7 @@ import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
 import EpisodeApp from "./components/EpisodeApp";
+import episodeJson from "./data/LibrariansEpisodes.json";
 
 
 const store = configureStore();
@@ -15,6 +16,9 @@ const jsx = (
         <EpisodeApp />
     </Provider>
 );
+
+console.log(episodeJson);
+console.log(episodeJson.Episodes[0].Title);
 
 ReactDOM.render(jsx, document.getElementById('app'));
 

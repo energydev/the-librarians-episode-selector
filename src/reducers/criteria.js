@@ -2,15 +2,17 @@
 
 const criteriaReducerDefaultState = {
     season: 1,
-    headlineCharacter: ""
+    headliner: ""
 };
 
 export default (state = criteriaReducerDefaultState, action) => {
     switch (action.type) {
         case "SET_SEASON":
-            console.log("action is: ", action);
-            console.log("action.season is: ", action.season);
             return { ...state, season: action.season };
+        case "SET_HEADLINER":
+            return { ...state, headliner: action.headliner }
+        case "CLEAR_CRITERIA":
+            return criteriaReducerDefaultState;
         default:
             return state;
     }

@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
-import { seasonModalOn, seasonModalOff, selectedEpisodeModalOn } from "../actions/modals";
+import { headlinerModalOn, seasonModalOff, selectedEpisodeModalOn } from "../actions/modals";
 import { setSeason } from "../actions/criteria";
 
 
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     seasonModalOff: () => dispatch(seasonModalOff()),
-    seasonModalOn: () => dispatch(seasonModalOn()),
+    seasonModalOn: () => dispatch(headlinerModalOn()),
     selectedEpisodeModalOn: () => dispatch(selectedEpisodeModalOn()),
     setSeason: (season) => dispatch(setSeason(season))
 });

@@ -2,6 +2,7 @@ import {createStore, combineReducers, applyMiddleware, compose} from "redux";
 import thunk from "redux-thunk";
 import modalsReducer from "../reducers/modals";
 import criteriaReducer from "../reducers/criteria";
+import selectedEpisodeReducer from "../reducers/selectedEpisode";
 
 
 //this allows us to keep the dev tools functionality
@@ -12,7 +13,8 @@ export default () => {
     const store = createStore(
         combineReducers({
             modals: modalsReducer,
-            criteria: criteriaReducer
+            criteria: criteriaReducer,
+            selectedEpisode: selectedEpisodeReducer
         }),
         composeEnhancers(applyMiddleware(thunk))
         //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

@@ -3,9 +3,9 @@ export const seasonModalOn = () => ({
     type: "SEASON_MODAL_ON"
 });
 
-// CHARACTER_MODAL_ON
-export const characterModalOn = () => ({
-    type: "CHARACTER_MODAL_ON"
+// HEADLINER_MODAL_ON
+export const headlinerModalOn = () => ({
+    type: "HEADLINER_MODAL_ON"
 });
 
 // SELECTED_EPISODE_MODAL_ON
@@ -18,9 +18,9 @@ export const seasonModalOff = () => ({
     type: "SEASON_MODAL_OFF"
 });
 
-// CHARACTER_MODAL_OFF
-export const characterModalOff = () => ({
-    type: "CHARACTER_MODAL_OFF"
+// HEADLINER_MODAL_OFF
+export const headlinerModalOff = () => ({
+    type: "HEADLINER_MODAL_OFF"
 });
 
 // SELECTED_EPISODE_MODAL
