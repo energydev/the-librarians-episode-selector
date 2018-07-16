@@ -30,7 +30,6 @@ export class SeasonModal extends React.Component {
                 className="modal"
             >
                 <h3 className="modal__title">Season selection</h3>
-                {this.props.selectedOption && <p className="modal__body">{this.props.selectedOption}</p>}
                 <div>
                 <select
                     className="input-select"

@@ -46,6 +46,10 @@ export class MainPage extends React.Component {
                     >
                         Random by Guest Appearance
                     </button>
+                    <button className="big-button"
+                    >
+                        Show Episode List
+                    </button>
                 </div>
                 <SeasonModal />
                 <HeadlinerModal />

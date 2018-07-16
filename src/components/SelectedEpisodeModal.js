@@ -60,7 +60,7 @@ export class SelectedEpisodeModal extends React.Component {
                 className="modal"
             >
                 <h3 className="modal__title">Selected Episode</h3>
-                {this.props.selectedOption && <p className="modal__body">{this.props.selectedOption}</p>}
+
                 <div>
                     <p>{this.props.selectedEpisode.Title}</p>
                     <p>Season {this.props.selectedEpisode.Season} Episode {this.props.selectedEpisode.EpisodeNoInSeason}</p>
