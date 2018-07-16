@@ -3,7 +3,10 @@ import { connect } from "react-redux";
 import SeasonModal from "./SeasonModal";
 import SelectedEpisodeModal from "./SelectedEpisodeModal";
 import HeadlinerModal from "./HeadlinerModal";
-import { seasonModalOn, headlinerModalOn } from "../actions/modals";
+import GuestModal from "./GuestModal";
+import { seasonModalOn, headlinerModalOn, guestModalOn } from "../actions/modals";
+import { getGuestCharacters } from "../modules/episodes";
+import episodeJson from "../data/LibrariansEpisodes.json";
 
 
 export class MainPage extends React.Component {
@@ -16,6 +19,11 @@ export class MainPage extends React.Component {
     displayHeaderlinerModal = (e) => {
         console.log("going to display headliner modal");
         this.props.headlinerModalOn();
+    };
+
+    displayGuestModal = (e) => {
+        console.log("going to display guest modal");
+        this.props.guestModalOn();
     };
 
     render() {
@@ -33,9 +41,15 @@ export class MainPage extends React.Component {
                     >
                         Random by Featured Headliner
                     </button>
+                    <button className="big-button"
+                        onClick={this.displayGuestModal}
+                    >
+                        Random by Guest Appearance
+                    </button>
                 </div>
                 <SeasonModal />
                 <HeadlinerModal />
+                <GuestModal guests={getGuestCharacters(episodeJson.Episodes)} />
                 <SelectedEpisodeModal />
             </div>
         )
@@ -49,7 +63,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
     seasonModalOn: () => dispatch(seasonModalOn()),
-    headlinerModalOn: () => dispatch(headlinerModalOn())
+    headlinerModalOn: () => dispatch(headlinerModalOn()),
+    guestModalOn: () => dispatch(guestModalOn())
 });
 
 

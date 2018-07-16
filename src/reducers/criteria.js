@@ -2,7 +2,8 @@
 
 const criteriaReducerDefaultState = {
     season: 1,
-    headliner: ""
+    headliner: "",
+    guest: ""
 };
 
 export default (state = criteriaReducerDefaultState, action) => {
@@ -11,6 +12,8 @@ export default (state = criteriaReducerDefaultState, action) => {
             return { ...state, season: action.season };
         case "SET_HEADLINER":
             return { ...state, headliner: action.headliner }
+        case "SET_GUEST":
+            return { ...state, guest: action.guest }
         case "CLEAR_CRITERIA":
             return criteriaReducerDefaultState;
         default:

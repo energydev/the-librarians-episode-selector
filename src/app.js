@@ -8,7 +8,6 @@ import "react-dates/lib/css/_datepicker.css";
 import EpisodeApp from "./components/EpisodeApp";
 import episodeJson from "./data/LibrariansEpisodes.json";
 
-
 const store = configureStore();
 
 const jsx = (
@@ -18,7 +17,6 @@ const jsx = (
 );
 
 console.log(episodeJson);
-console.log(episodeJson.Episodes[0].Title);
 
 ReactDOM.render(jsx, document.getElementById('app'));
 

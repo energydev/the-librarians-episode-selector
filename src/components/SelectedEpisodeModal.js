@@ -2,13 +2,11 @@ import React from "react";
 import ReactDOM from 'react-dom';
 import Modal from "react-modal";
 import { connect } from "react-redux";
-import { headlinerModalOn, seasonModalOff, selectedEpisodeModalOn, selectedEpisodeModalOff } from "../actions/modals";
+import { selectedEpisodeModalOn, selectedEpisodeModalOff } from "../actions/modals";
 import { clearCriteria } from "../actions/criteria";
 import { setSelectedEpisode } from "../actions/selectedEpisode";
 import episodeJson from "../data/LibrariansEpisodes.json";
 
-
-//using implicit return
 export class SelectedEpisodeModal extends React.Component {
 
     constructor() {
@@ -25,9 +23,28 @@ export class SelectedEpisodeModal extends React.Component {
 
 
     afterOpenModal() {
-        //If we have a headliner, then select by headliner, otherwise select by season
+        //Order of precedence for selection headliner, guest, season
+
         const allEpisodes = episodeJson.Episodes;
-        const episodeList = allEpisodes.filter((episode) => episode.Season == this.props.criteria.season);
+        let episodeList = {};
+
+        switch (true) {
+            case (!!this.props.criteria.headliner):
+                episodeList = allEpisodes.filter((episode) => {
+                    const featuredHeadliners = episode.FeaturedHeadliners.split(",");
+                    return featuredHeadliners.includes(this.props.criteria.headliner);
+                });
+                break;
+            case (!!this.props.criteria.guest):
+                episodeList = allEpisodes.filter((episode) => {
+                    const featuredGuests = episode.FeaturedGuestStars.split(",");
+                    return featuredGuests.includes(this.props.criteria.guest);
+                });
+                break;
+            default:
+                episodeList = allEpisodes.filter((episode) => episode.Season == this.props.criteria.season);
+        }
+
         const selectedIndex = Math.floor(Math.random() * episodeList.length);
         this.props.setSelectedEpisode(episodeList[selectedIndex]);
     }
@@ -62,8 +79,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    seasonModalOff: () => dispatch(seasonModalOff()),
-    seasonModalOn: () => dispatch(headlinerModalOn()),
     selectedEpisodeModalOn: () => dispatch(selectedEpisodeModalOn()),
     selectedEpisodeModalOff: () => dispatch(selectedEpisodeModalOff()),
     setSelectedEpisode: (episode) => dispatch(setSelectedEpisode(episode)),

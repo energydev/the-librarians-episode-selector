@@ -35,7 +35,6 @@ export class SeasonModal extends React.Component {
                 <select
                     className="input-select"
                     value={this.props.criteria.season}
-                    onLoad={this.onSeasonChange}
                     onChange={this.onSeasonChange}
                 >
                     <option value="1">1</option>

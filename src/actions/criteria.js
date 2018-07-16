@@ -9,6 +9,11 @@ export const setHeadliner = (headliner) => ({
     headliner
 });
 
+export const setGuest = (guest) => ({
+    type: "SET_GUEST",
+    guest
+});
+
 export const clearCriteria = () => ({
     type: "CLEAR_CRITERIA"
 });

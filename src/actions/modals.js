@@ -8,6 +8,11 @@ export const headlinerModalOn = () => ({
     type: "HEADLINER_MODAL_ON"
 });
 
+// GUEST_MODAL_ON
+export const guestModalOn = () => ({
+    type: "GUEST_MODAL_ON"
+});
+
 // SELECTED_EPISODE_MODAL_ON
 export const selectedEpisodeModalOn = () => ({
     type: "SELECTED_EPISODE_MODAL_ON"
@@ -26,5 +31,10 @@ export const headlinerModalOff = () => ({
 // SELECTED_EPISODE_MODAL
 export const selectedEpisodeModalOff = () => ({
     type: "SELECTED_EPISODE_MODAL_OFF"
+});
+
+// GUEST_MODAL_OFF
+export const guestModalOff = () => ({
+    type: "GUEST_MODAL_OFF"
 });
 

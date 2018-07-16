@@ -7,23 +7,33 @@ import { setHeadliner } from "../actions/criteria";
 
 export class HeadlinerModal extends React.Component {
 
+    constructor() {
+        super();
+
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+
+    }
+
     handleHeadlinerSelection = (e) => {
-        console.log("inside handleHeadlinerSelection");
         this.props.headlinerModalOff();
         setTimeout(() => { this.props.selectedEpisodeModalOn(); }, 200);
     };
 
     onHeadlinerChange = (e) => {
-        console.log("inside onHeadlinerChange");
         const headliner = e.target.value;
         this.props.setHeadliner(headliner);
-        setTimeout(() => { console.log(this.props.criteria.headliner); }, 200);
     };   
+
+    afterOpenModal() {
+        //See headliner to Flynn as the default
+        this.props.setHeadliner("Flynn");
+    }    
 
     render() {
         return (
             <Modal
-                isOpen={this.props.modals.headliner} //converted to a true boolean
+                isOpen={!!this.props.modals.headliner} 
+                onAfterOpen={this.afterOpenModal}                
                 onRequestClose={this.handleHeadlinerSelection}
                 contentLabel="Select a Featured Healiner"
                 closeTimeoutMS={200}
@@ -35,7 +45,6 @@ export class HeadlinerModal extends React.Component {
                 <select
                     className="input-select"
                     value={this.props.criteria.headliner}
-                    onLoad={this.onHeadlinerChange}
                     onChange={this.onHeadlinerChange}
                 >
                     <option value="Flynn">Flynn</option>
