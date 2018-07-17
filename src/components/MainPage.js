@@ -29,6 +29,9 @@ export class MainPage extends React.Component {
 
     render() {
 
+        console.log(this.props.location.pathname);
+        console.log(this.props);
+
         return (
             <div className="main-page">
                 <div className="content-container">
