@@ -5,9 +5,19 @@
     padding: $m-size 0;
 }
 
+.header__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: $s-size 0;
+}
+
 .header__title {
-    font-size: $l-size;
-    margin: 0;
+    color: white;
+    text-decoration: none;
+    h1 {
+        margin: 0;
+    }
 }
 
 .header__subtitle {
@@ -17,6 +27,16 @@
     margin: 0;
 
 }
+
+.header__link {
+    color: white;
+    font-size: $font-size-large;
+    font-weight: 300;
+    line-height: 1;
+    padding: $s-size;
+    text-decoration: none;
+}
+
 
 //Apply these styles at a minimum width of 45
 @media (min-width: $desktop-breakpoint) {

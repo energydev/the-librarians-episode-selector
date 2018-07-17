@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import SeasonModal from "./SeasonModal";
 import SelectedEpisodeModal from "./SelectedEpisodeModal";
 import HeadlinerModal from "./HeadlinerModal";
@@ -27,6 +28,9 @@ export class MainPage extends React.Component {
     };
 
     render() {
+
+        console.log("the current path is", this.props.location);
+
         return (
             <div className="main-page">
                 <div className="content-container">
@@ -46,20 +50,16 @@ export class MainPage extends React.Component {
                     >
                         Random by Guest Appearance
                     </button>
-                    <button className="big-button"
-                    >
-                        Show Episode List
-                    </button>
+                    <SeasonModal />
+                    <HeadlinerModal />
+                    <GuestModal guests={getGuestCharacters(episodeJson.Episodes)} />
+                    <SelectedEpisodeModal />
                 </div>
-                <SeasonModal />
-                <HeadlinerModal />
-                <GuestModal guests={getGuestCharacters(episodeJson.Episodes)} />
-                <SelectedEpisodeModal />
+
             </div>
         )
     }
 };
-
 
 const mapStateToProps = (state) => ({
     modals: state.modals

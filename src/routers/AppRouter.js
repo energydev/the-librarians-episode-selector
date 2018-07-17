@@ -1,26 +1,22 @@
-import React from "react";
-import {Router, Route, Switch} from "react-router-dom";
-import createHistory from "history/createBrowserHistory";
-import LoginPage from "../components/LoginPage";
-import DashboardPage from "../components/DashboardPage";
-import NotFoundPage from "../components/NotFoundPage";
-import PrivateRoute from "./PrivateRoute";
-import PublicRoute from "./PublicRoute";
+import React from 'react';
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import Header from '../components/Header';
+import MainPage from '../components/MainPage';
+import EpisodeListPage from '../components/EpisodeListPage';
 
-export const history = new createHistory();
+const subtitle = "Select an Episode to watch";
 
-const AppRouter = () => (
-    <Router history={history}>
-    <div>
-        <Switch>
-            <PublicRoute path="/" component={LoginPage} exact={true} />
-            <PrivateRoute path="/dashboard" component={DashboardPage} />            
-            <Route component={NotFoundPage} />
-        </Switch>
+export const AppRouter = () => (
+  <BrowserRouter>
+    <div className="episode-app">
+      <Header subtitle={subtitle} />
+      <Switch>
+        <Route path="/" component={MainPage} exact={true} />
+        <Route path="/episodes" component={EpisodeListPage} />
+      </Switch>
     </div>
-    </Router>
+  </BrowserRouter>
 );
 
 export default AppRouter;
-
 

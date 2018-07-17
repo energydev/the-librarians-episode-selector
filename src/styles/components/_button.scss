@@ -15,6 +15,22 @@
     opacity: .5;
 }
 
+.big-button--link {
+    text-decoration: none;
+    text-align: center;
+}
+
+.big-button-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+
 //Apply these styles at a minimum width of 45
 @media (min-width: $desktop-breakpoint) {
     .big-button {
