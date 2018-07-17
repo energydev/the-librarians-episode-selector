@@ -7,16 +7,19 @@ import EpisodeListPage from '../components/EpisodeListPage';
 const subtitle = "Select an Episode to watch";
 
 export const AppRouter = () => (
-  <BrowserRouter>
+  <BrowserRouter >
     <div className="episode-app">
       <Header subtitle={subtitle} />
       <Switch>
         <Route path="/" component={MainPage} exact={true} />
-        <Route path="/episodes" component={EpisodeListPage} />
+        <Route path="/the-librarians-episode-selector" component={MainPage} exact={true} />
+        <Route path="/episodes" component={EpisodeListPage} exact={true} />
+        <Route path="/the-librarians-episode-selector/episodes" component={EpisodeListPage} exact={true} />        
       </Switch>
     </div>
   </BrowserRouter>
 );
 
 export default AppRouter;
+
 
