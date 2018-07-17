@@ -9,13 +9,13 @@ import { setSeason } from "../actions/criteria";
 export class SeasonModal extends React.Component {
 
     handleSeasonSelection = (e) => {
-        console.log("inside handleSeasonSelection");
+        //console.log("inside handleSeasonSelection");
         this.props.seasonModalOff();
         setTimeout(() => { this.props.selectedEpisodeModalOn(); }, 200);
     };
 
     onSeasonChange = (e) => {
-        console.log("inside onSeasonChange");
+        //console.log("inside onSeasonChange");
         const seasonNumber = e.target.value;
         this.props.setSeason(seasonNumber);
     };   
@@ -29,7 +29,7 @@ export class SeasonModal extends React.Component {
                 closeTimeoutMS={200}
                 className="modal"
             >
-                <h3 className="modal__title">Season selection</h3>
+                <h3 className="modal__title">Season Selection</h3>
                 <div>
                 <select
                     className="input-select"

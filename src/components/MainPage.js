@@ -13,24 +13,24 @@ import episodeJson from "../data/LibrariansEpisodes.json";
 export class MainPage extends React.Component {
 
     displaySeasonModal = (e) => {
-        console.log("going to display season modal");
+        //console.log("going to display season modal");
         this.props.seasonModalOn();
     };
 
     displayHeaderlinerModal = (e) => {
-        console.log("going to display headliner modal");
+        //console.log("going to display headliner modal");
         this.props.headlinerModalOn();
     };
 
     displayGuestModal = (e) => {
-        console.log("going to display guest modal");
+        //console.log("going to display guest modal");
         this.props.guestModalOn();
     };
 
     render() {
 
-        console.log(this.props.location.pathname);
-        console.log(this.props);
+        //console.log(this.props.location.pathname);
+        //console.log(this.props);
 
         return (
             <div className="main-page">

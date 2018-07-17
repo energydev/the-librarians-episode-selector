@@ -14,20 +14,20 @@ export class GuestModal extends React.Component {
     }
 
     handleGuestSelection = (e) => {
-        console.log("in handleGuestSelection");
+        //console.log("in handleGuestSelection");
         this.props.guestModalOff();
         setTimeout(() => { this.props.selectedEpisodeModalOn(); }, 200);
     };
 
     onGuestChange = (e) => {
-        console.log("in onGuestChange");
+        //console.log("in onGuestChange");
         const guest = e.target.value;
         this.props.setGuest(guest);
         setTimeout(() => { console.log(this.props.criteria.guest); }, 200);
     };
 
     afterOpenModal() {
-        console.log("in afterOpenModal");
+        //console.log("in afterOpenModal");
         this.props.setGuest(this.props.guests[0]);
         setTimeout(() => { console.log(this.props.criteria.guest); }, 200);
     }
@@ -42,7 +42,7 @@ export class GuestModal extends React.Component {
                 closeTimeoutMS={200}
                 className="modal"
             >
-                <h3 className="modal__title">Guest selection</h3>
+                <h3 className="modal__title">Guest Selection</h3>
                 <div>
                     <select
                         className="input-select"

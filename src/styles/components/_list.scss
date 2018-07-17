@@ -9,28 +9,35 @@
 
 .list-body {
     margin-bottom: $m-size;
+    padding-bottom: $m-size;
+    color: white;
     @media (min-width: $desktop-breakpoint) {
         margin-bottom: $l-size;
-    }
+        padding-bottom: $l-size;
+    };
+
 }
 
 .list-item {
     border: 1px solid darken($off-white, 7%);
     border-top: none;
-    color: $dark-grey;
+    color: white;
     display: flex;
     flex-direction: column;
     padding: $s-size;
     text-decoration: none;
     transition: background .3s ease;
-    &:hover {
-        background: $off-white;
-    }
     @media (min-width: $desktop-breakpoint) {
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
         padding: $m-size;
+    }
+}
+
+.list-item-main {
+    @media (min-width: $desktop-breakpoint) {
+        width: 20rem;
     }
 }
 
@@ -46,18 +53,19 @@
 
 .list-item__title {
     margin: 0; 
-    word-break: break-all;
 }
 
 .list-item__sub-title {
-    color: $grey;
+    color: $off-white;
     font-size: $font-size-small;
 }
 
 .list-item__data {
     margin: $s-size 0 0 0;
+    font-size: $font-size-small;
     @media (min-width: $desktop-breakpoint) {
         margin: 0;
         padding-left: $s-size;
+        width: 60rem;
     }
 }

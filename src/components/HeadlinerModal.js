@@ -39,7 +39,7 @@ export class HeadlinerModal extends React.Component {
                 closeTimeoutMS={200}
                 className="modal"
             >
-                <h3 className="modal__title">Headliner selection</h3>
+                <h3 className="modal__title">Headliner Selection</h3>
 
                 <div>
                 <select
