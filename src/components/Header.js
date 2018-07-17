@@ -6,7 +6,7 @@ export const Header = (props) => (
         <div className="content-container">
             <div className="header__content">
             <div>
-            <Link className="header__title" to="/"><h1>{props.title}</h1></Link>
+            <Link className="header__title" to={(location.pathname.includes("the-librarians-episode-selector") ? "/the-librarians-episode-selector/" : "/")}><h1>{props.title}</h1></Link>
             {props.subtitle && <h2 className="header__subtitle">{props.subtitle}</h2>}
             </div>
                 <div>
