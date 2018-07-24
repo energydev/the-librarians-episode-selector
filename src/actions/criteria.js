@@ -14,6 +14,12 @@ export const setGuest = (guest) => ({
     guest
 });
 
+export const setSelectBy = (selectBy) => ({
+    type: "SET_SELECT_BY",
+    selectBy
+});
+
+
 export const clearCriteria = () => ({
     type: "CLEAR_CRITERIA"
 });

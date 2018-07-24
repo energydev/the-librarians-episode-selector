@@ -19,7 +19,7 @@ export const Header = (props) => (
 
 
 Header.defaultProps = {
-    title: "Librarians Episode Selector"
+    title: "Random TNT Librarians"
 }
 
 export default withRouter(Header);

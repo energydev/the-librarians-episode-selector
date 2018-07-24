@@ -1,31 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import SeasonModal from "./SeasonModal";
+import SeasonSelection from "./SeasonSelection";
 import SelectedEpisodeModal from "./SelectedEpisodeModal";
-import HeadlinerModal from "./HeadlinerModal";
-import GuestModal from "./GuestModal";
+import HeadlinerSelection from "./HeadlinerSelection";
+import GuestSelection from "./GuestSelection";
 import { seasonModalOn, headlinerModalOn, guestModalOn } from "../actions/modals";
 import { getGuestCharacters } from "../modules/episodes";
 import episodeJson from "../data/LibrariansEpisodes.json";
 
 
 export class MainPage extends React.Component {
-
-    displaySeasonModal = (e) => {
-        //console.log("going to display season modal");
-        this.props.seasonModalOn();
-    };
-
-    displayHeaderlinerModal = (e) => {
-        //console.log("going to display headliner modal");
-        this.props.headlinerModalOn();
-    };
-
-    displayGuestModal = (e) => {
-        //console.log("going to display guest modal");
-        this.props.guestModalOn();
-    };
 
     render() {
 
@@ -34,28 +19,20 @@ export class MainPage extends React.Component {
 
         return (
             <div className="main-page">
-                <div className="content-container">
-                    Main page content.
-                    <button className="big-button"
-                        onClick={this.displaySeasonModal}
-                    >
-                        Random by Season
-                    </button>
-                    <button className="big-button"
-                        onClick={this.displayHeaderlinerModal}
-                    >
-                        Random by Featured Headliner
-                    </button>
-                    <button className="big-button"
-                        onClick={this.displayGuestModal}
-                    >
-                        Random by Guest Appearance
-                    </button>
-                    <SeasonModal />
-                    <HeadlinerModal />
-                    <GuestModal guests={getGuestCharacters(episodeJson.Episodes)} />
-                    <SelectedEpisodeModal />
+                <div className="main-page-content-container">
+                    <div className="main-page-item">
+                        <div className="main-page-section">
+                            <SeasonSelection />
+                        </div>
+                        <div className="main-page-section">
+                            <HeadlinerSelection />
+                        </div>
+                        <div className="main-page-section">
+                            <GuestSelection guests={getGuestCharacters(episodeJson.Episodes)} />
+                        </div>
+                    </div>
                 </div>
+                <SelectedEpisodeModal />
 
             </div>
         )

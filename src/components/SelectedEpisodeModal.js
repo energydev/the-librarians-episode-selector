@@ -17,7 +17,6 @@ export class SelectedEpisodeModal extends React.Component {
     }
 
     handleCloseEpisodeSelection = () => {
-        this.props.clearCriteria();
         this.props.selectedEpisodeModalOff();
     };
 
@@ -25,17 +24,19 @@ export class SelectedEpisodeModal extends React.Component {
     afterOpenModal() {
         //Order of precedence for selection headliner, guest, season
 
+        console.log("inside afterOpenModal for SelectedEpisodeModal");
+
         const allEpisodes = episodeJson.Episodes;
         let episodeList = {};
 
-        switch (true) {
-            case (!!this.props.criteria.headliner):
+        switch (this.props.criteria.selectBy) {
+            case ("headliner"):
                 episodeList = allEpisodes.filter((episode) => {
                     const featuredHeadliners = episode.FeaturedHeadliners.split(",");
                     return featuredHeadliners.includes(this.props.criteria.headliner);
                 });
                 break;
-            case (!!this.props.criteria.guest):
+            case ("guest"):
                 episodeList = allEpisodes.filter((episode) => {
                     const featuredGuests = episode.FeaturedGuestStars.split(",");
                     return featuredGuests.includes(this.props.criteria.guest);

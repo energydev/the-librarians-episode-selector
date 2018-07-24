@@ -3,7 +3,8 @@
 const criteriaReducerDefaultState = {
     season: 1,
     headliner: "",
-    guest: ""
+    guest: "",
+    selectBy: ""
 };
 
 export default (state = criteriaReducerDefaultState, action) => {
@@ -14,6 +15,8 @@ export default (state = criteriaReducerDefaultState, action) => {
             return { ...state, headliner: action.headliner }
         case "SET_GUEST":
             return { ...state, guest: action.guest }
+        case "SET_SELECT_BY":
+            return { ...state, selectBy: action.selectBy }
         case "CLEAR_CRITERIA":
             return criteriaReducerDefaultState;
         default:
