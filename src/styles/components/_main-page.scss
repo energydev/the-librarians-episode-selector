@@ -12,8 +12,14 @@
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
-        padding: $m-size;
+        padding: 0 $m-size $m-size $m-size;
     }
+}
+
+.main-page-sub-title {
+    color: $off-white;
+    font-size: 2rem;
+    text-align: center;
 }
 
 

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render Header correctly 1`] = `
-<header
+<div
   className="header"
 >
   <div
@@ -10,22 +10,32 @@ exports[`should render Header correctly 1`] = `
     <div
       className="header__content"
     >
-      <Link
-        className="header__title"
-        replace={false}
-        to="/dashboard"
-      >
-        <h1>
-          Boilerplate
-        </h1>
-      </Link>
-      <button
-        className="button button--link"
-        onClick={[Function]}
-      >
-        Logout
-      </button>
+      <div>
+        <Link
+          className="header__title"
+          replace={false}
+          to="/"
+        >
+          <h1>
+            Random TNT Librarians
+          </h1>
+        </Link>
+        <h2
+          className="header__subtitle"
+        >
+          Test subtitle
+        </h2>
+      </div>
+      <div>
+        <Link
+          className="header__link"
+          replace={false}
+          to="/episodes"
+        >
+          Episode List
+        </Link>
+      </div>
     </div>
   </div>
-</header>
+</div>
 `;

@@ -5,12 +5,10 @@ import MainPage from '../components/MainPage';
 import EpisodeListPage from '../components/EpisodeListPage';
 import episodeJson from "../data/LibrariansEpisodes.json";
 
-const subtitle = "Select an Episode to watch";
-
 export const AppRouter = () => (
   <BrowserRouter >
     <div className="episode-app">
-      <Header subtitle={subtitle} />
+      <Header />
       <Switch>
         <Route path="/" component={MainPage} exact={true} />
         <Route path="/the-librarians-episode-selector/" component={MainPage} exact={true} />

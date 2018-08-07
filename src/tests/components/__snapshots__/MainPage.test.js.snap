@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render MainPage correctly 1`] = `
+<div
+  className="main-page"
+>
+  <div
+    className="main-page-content-container"
+  >
+    <div
+      className="main-page-sub-title"
+    >
+      <h2>
+        Randomly Select Episode
+      </h2>
+    </div>
+    <div
+      className="main-page-item"
+    >
+      <div
+        className="main-page-section"
+      >
+        <Connect(SeasonSelection) />
+      </div>
+      <div
+        className="main-page-section"
+      >
+        <Connect(HeadlinerSelection) />
+      </div>
+      <div
+        className="main-page-section"
+      >
+        <Connect(GuestSelection)
+          guests={
+            Array [
+              "Cindy",
+              "Dulaque",
+              "General Rockwell",
+              "Lady of the Lake",
+              "Lamia",
+              "Mabel",
+              "Moriarty",
+              "Nicole",
+              "Santa Claus",
+            ]
+          }
+        />
+      </div>
+    </div>
+  </div>
+  <Connect(SelectedEpisodeModal) />
+  /&gt;
+</div>
+`;
