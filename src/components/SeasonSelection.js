@@ -1,8 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
+import Select from 'react-select';
 import { selectedEpisodeModalOn } from "../actions/modals";
 import { setSeason, setSelectBy } from "../actions/criteria";
 
+
+const options = [
+    { value: '1', label: 'One' },
+    { value: '2', label: 'Two' },
+    { value: '3', label: 'Three' },
+    { value: '4', label: 'Four' }
+];
 
 export class SeasonSelection extends React.Component {
 
@@ -19,27 +27,27 @@ export class SeasonSelection extends React.Component {
     };
 
     onSeasonChange = (e) => {
-        const seasonNumber = e.target.value;
+        const seasonNumber = e.value;
         this.props.setSeason(seasonNumber);
     };
 
     render() {
+
         return (
             <div>
                 <h3>By Season</h3>
                 <div>
-                    <select
+
+                    <Select
                         className="input-select"
-                        value={this.props.criteria.season}
+                        value={options[this.props.criteria.season - 1]}
                         onChange={this.onSeasonChange}
-                    >
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
+                        options={options}
+                        placeholder="Select Season..."
+                        isMulti={false}
+                    />
                 </div>
-                <button className="button" onClick={this.handleSeasonSelection}>Okay</button>
+                <button className="button" onClick={this.handleSeasonSelection}>Select Episode</button>
             </div>
         )
     }

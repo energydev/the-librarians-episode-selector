@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+import Select from 'react-select';
 import { selectedEpisodeModalOn } from "../actions/modals";
 import { setGuest, setSelectBy } from "../actions/criteria";
-
 
 export class GuestSelection extends React.Component {
 
@@ -19,28 +19,34 @@ export class GuestSelection extends React.Component {
     };
 
     onGuestChange = (e) => {
-        const guest = e.target.value;
+        const guest = e.value;
         this.props.setGuest(guest);
     };
 
     render() {
+
+        const options = [];
+
+        this.props.guests.map((guest) => (
+            options.push({ value: guest, label: guest })
+        ));
+
+
         return (
             <div>
                 <h3>By Guest</h3>
                 <div>
-                    <select
+                    <Select
                         className="input-select"
-                        value={this.props.criteria.guest}
+                        defaultValue={options[0]}
+                        value={options[this.props.criteria.guest]}
                         onChange={this.onGuestChange}
-                    >
-                        {
-                            this.props.guests.map((guest) => (
-                                <option key={guest} value={guest}>{guest}</option>
-                            ))
-                        }
-                    </select>
+                        options={options}
+                        placeholder="Select Guest..."
+                        isMulti={false}
+                    />
                 </div>
-                <button className="button" onClick={this.handleGuestSelection}>Okay</button>
+                <button className="button" onClick={this.handleGuestSelection}>Select Episode</button>
             </div>
         )
     }

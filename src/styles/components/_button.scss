@@ -44,8 +44,9 @@
     border: none;
     border-bottom: .3rem solid darken($gold, 10%);
     color: white;
-    font-weight: 500;
+    font-weight: 700;
     padding: $s-size;
+    border-radius: 6px;
 }
 
 .button--link {

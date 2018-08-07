@@ -18,8 +18,8 @@
 
 
 .main-page-item {
-    border: 1px solid darken($off-white, 7%);
-    border-radius: 3px;
+    /*border: 1px solid darken($off-white, 7%);
+    border-radius: 3px;*/
     display: flex;
     flex-direction: column;
     padding: $s-size;
@@ -50,5 +50,9 @@
         padding: $m-size;
     }
  
+}
+
+.main-page-section div {
+    flex-basis: auto;
 }
 

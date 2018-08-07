@@ -8,6 +8,14 @@ import GuestSelection from "./GuestSelection";
 import { seasonModalOn, headlinerModalOn, guestModalOn } from "../actions/modals";
 import { getGuestCharacters } from "../modules/episodes";
 import episodeJson from "../data/LibrariansEpisodes.json";
+import Select from 'react-select';
+
+const options = [
+    { value: '1', label: 'One' },
+    { value: '2', label: 'Two' },
+    { value: '3', label: 'Three' },
+    { value: '4', label: 'Four' }
+];
 
 
 export class MainPage extends React.Component {
@@ -33,7 +41,7 @@ export class MainPage extends React.Component {
                     </div>
                 </div>
                 <SelectedEpisodeModal />
-
+            />
             </div>
         )
     }

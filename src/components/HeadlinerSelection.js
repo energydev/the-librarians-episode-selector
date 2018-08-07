@@ -1,8 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
+import Select from 'react-select';
 import { selectedEpisodeModalOn } from "../actions/modals";
 import { setHeadliner, setSelectBy } from "../actions/criteria";
 
+
+const options = [
+    { value: 'Flynn', label: 'Flynn' },
+    { value: 'Eve', label: 'Eve' },
+    { value: 'Cassandra', label: 'Cassandra' },
+    { value: 'Ezekiel', label: 'Ezekiel' },
+    { value: 'Jake', label: 'Jake' },
+    { value: 'Jenkins', label: 'Jenkins' }
+];
 
 export class HeadlinerSelection extends React.Component {
 
@@ -18,7 +28,7 @@ export class HeadlinerSelection extends React.Component {
     };
 
     onHeadlinerChange = (e) => {
-        const headliner = e.target.value;
+        const headliner = e.value;
         this.props.setHeadliner(headliner);
     };
 
@@ -29,21 +39,19 @@ export class HeadlinerSelection extends React.Component {
                 <h3>By Headliner</h3>
 
                 <div>
-                    <select
-                        className="input-select"
-                        value={this.props.criteria.headliner}
-                        onChange={this.onHeadlinerChange}
-                    >
-                        <option value="Flynn">Flynn</option>
-                        <option value="Eve">Eve</option>
-                        <option value="Cassandra">Cassandra</option>
-                        <option value="Ezekiel">Ezekiel</option>
-                        <option value="Jake">Jake</option>
-                        <option value="Jenkins">Jenkins</option>
 
-                    </select>
+                    <Select
+                        className="input-select"
+                        defaultValue={options[0]}
+                        value={options[this.props.criteria.headliner]}
+                        onChange={this.onHeadlinerChange}
+                        options={options}
+                        placeholder="Select Headliner..."
+                        isMulti={false}
+                    />
+
                 </div>
-                <button className="button" onClick={this.handleHeadlinerSelection}>Okay</button>
+                <button className="button" onClick={this.handleHeadlinerSelection}>Select Episode</button>
             </div>
         )
     }
