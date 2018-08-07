@@ -45,6 +45,7 @@ export class SeasonSelection extends React.Component {
                         options={options}
                         placeholder="Select Season..."
                         isMulti={false}
+                        isSearchable={false}
                     />
                 </div>
                 <button className="button" onClick={this.handleSeasonSelection}>Select Episode</button>

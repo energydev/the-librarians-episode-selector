@@ -44,6 +44,7 @@ export class GuestSelection extends React.Component {
                         options={options}
                         placeholder="Select Guest..."
                         isMulti={false}
+                        isSearchable={false}
                     />
                 </div>
                 <button className="button" onClick={this.handleGuestSelection}>Select Episode</button>

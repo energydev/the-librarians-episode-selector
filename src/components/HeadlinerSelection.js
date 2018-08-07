@@ -48,6 +48,7 @@ export class HeadlinerSelection extends React.Component {
                         options={options}
                         placeholder="Select Headliner..."
                         isMulti={false}
+                        isSearchable={false}
                     />
 
                 </div>
