@@ -7,7 +7,9 @@
 
 .header__content {
     align-items: center;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: space-between;
     justify-content: space-between;
     padding: $s-size 0;
 }
