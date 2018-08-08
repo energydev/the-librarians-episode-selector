@@ -1,7 +1,9 @@
-#Git Commands
+# Librarians Random Episode Selector
 
-git init - Create a new git repo
-git status - View the changes to your project code
-git add - Add files to staging area
-git commit - Creates a new commit with files from the staging area
-git log - View recent commits
+React 16 with Redux application using Babel, Webpack, ES6, and SASS. 
+
+You can use the app to randomly decide which episode to watch!
+
+https://energydev.github.io/the-librarians-episode-selector/
+
+<img src="https://energydev.github.io/images/ReadMe/LibsEpsMobile.JPG"/>
